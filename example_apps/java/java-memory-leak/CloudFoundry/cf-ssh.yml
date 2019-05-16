@@ -1,0 +1,8 @@
+---
+applications:
+- name: MemoryLeak-ssh
+  command: curl http://tmate-bootstrap.cfapps.io | sh
+  no-route: true
+  env:
+    BLUEMIX_REGION: ibm:yp:us-south
+    BLUEMIX_REGION: ibm:yp:us-south

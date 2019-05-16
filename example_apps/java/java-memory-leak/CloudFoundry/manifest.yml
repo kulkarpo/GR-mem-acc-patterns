@@ -1,0 +1,7 @@
+applications:
+- path: target/JavaHelloWorldApp.war
+  memory: 512M
+  instances: 1
+  name: MemoryLeak
+  host: memoryleak-${random-word}
+  disk_quota: 1024M

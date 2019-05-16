@@ -1,0 +1,36 @@
+<header class="hero is-primary">
+  <!-- Hero header: will stick at the top -->
+  <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-left">
+          {{#link-to 'index' class="nav-item is-active"}}Ups{{/link-to}}
+        </div>
+
+        <div class="nav-right nav-menu">
+          {{#link-to 'index' class="nav-item" activeClass="is-active"}}Home{{/link-to}}
+          {{#link-to 'profile' model.user class="nav-item" activeClass="is-active"}}Profile{{/link-to}}
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Hello, {{#link-to 'profile' model.user.id}}{{format-name model.user}}{{/link-to}}.
+      </h1>
+    </div>
+  </div>
+</header>
+
+<div class="section">
+  <div class="container">
+    <div class="heading">
+      {{current-route}}
+    </div>
+
+    {{outlet}}
+  </div>
+</div>
+
