@@ -36,22 +36,22 @@ Initial reading *paper 1* refers to some benchmark applications, could take a lo
 
 
 ## Open Questions
-* Define application
-	* Add 2 numbers, Allocate memory in infinite loop ?
+* Define "application" in the current context
+	* Add 2 numbers, Allocate memory in infinite loop ? <- are these "applications" in the current context?
     * How complex should the application be to see the actual behavior of a faulty application?
     * ~~Does the application need to do some complex processing also ?~~
         * ~~Because, To measure the performance of app wrt time (increasing memory)~~
     * Currently, all the example applications (faulty case) look similar (Same type of logic liek a growing list)
-    * Is the initial motivation is just to see memeory access/usage pattern behavior is exhibited by different programming languages?
+    * Is the initial motivation is just to see memory access/usage pattern exhibited by different programming languages?
 
 * Garbage collecting algorithms
-	* Which example application what kind of garbage collecting algorithm ?
+	*  example application for each algorithm ? same application but different algorithms ?
 
-* What other **faulty cases** other than memory leak ? because ultimately the topic is to be able to classify the access patterns - if possible that is.
+* What could be the other **faulty cases** ? other than memory leak ? because ultimately the topic is to be able to classify the memory access patterns - if possible that is.
 
 * Regular - non faulty application examples?
 	* Perhaps the same codes with leak fixes can be used?
-	* perhaps some benchmark applications can be used ? again how simple/complex should an application be ?
+	* Or perhaps some benchmark applications can be used ? again how simple/complex should an application be ?
 
 
 ### Activity tracking
