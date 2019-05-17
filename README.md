@@ -1,41 +1,41 @@
 # GR-mem-acc-patterns
 Guided research module : Identification and Analysis of memory access patterns in virtual infrastructure and cloud application
-###Initial Reading
+## Initial Reading
 1.  "Understanding Object-level Memory Access Patterns Across the Spectrum" - https://dl.acm.org/citation.cfm?id=3126917
 2.  "Performance Analysis of High Performance Computing Applications on the Amazon Web Services Cloud" - https://opac-ub-tum-de.eaccess.ub.tum.de/TouchPoint/singleHit.do?methodToCall=showHit&curPos=1&identifier=5_PRIMO_RESULTSET_259246941
 
 
 
-###Applications for the experiments -
+## Applications for the experiments -
 
 Initial reading *paper 1* refers to some benchmark applications, could take a look at those.
 
-#### Java
-##### Memeory leaking examples -
+### Java
+#### Memeory leaking examples -
 1. https://github.com/bogdangherca/memory-leaks-example/tree/master/src
 2. https://github.com/rmelick/java-memory-leak-demo
 
-#### JavaScript
+### JavaScript
 
 
-##### Memory leaking examples -
+#### Memory leaking examples -
 1. https://github.com/ufocoder/javascript.memory-leaks/tree/master/docs
 
-#### Python
+### Python
 1. https://github.com/thefangbear/p.py/blob/master/p.py
 2. https://github.com/daniel-ziegler/tuple_leak
 3. https://github.com/bast/cffi-mem-alloc-example
 
-#### Node js
-##### Memory leaking examples -
+### Node js
+#### Memory leaking examples -
 1. https://github.com/felixge/node-memory-leak-tutorial
 
 
-#### C/C++
+### C/C++
 1. https://github.com/ramkumarrammohan/memory_leak_concepts
 
 
-###Open Questions
+## Open Questions
 * Define application
 	* Add 2 numbers, Allocate memory in infinite loop ?
     * How complex should the application be to see the actual behavior of a faulty application?
@@ -54,7 +54,7 @@ Initial reading *paper 1* refers to some benchmark applications, could take a lo
 	* perhaps some benchmark applications can be used ? again how simple/complex should an application be ?
 
 
-#### Activity tracking
+### Activity tracking
 1. Literature survey - initial reading **In progress**
 2. Application Search - **In progress**
 3. Application build and run steps, docker images for docker applications - ** New **
