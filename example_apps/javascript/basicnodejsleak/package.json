@@ -1,0 +1,26 @@
+{
+  "name": "basicapp",
+  "main": "memleak.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "node memleak.js"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "express": "^4.17.0",
+    "nan": "^2.14.0",
+    "heapdump": "^0.3.14"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "version": "1.0.0",
+  "description": "Basic node js application to demonstrate memeory leak",
+  "devDependencies": {}
+}
