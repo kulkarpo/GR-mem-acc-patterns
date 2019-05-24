@@ -6,9 +6,10 @@ Client side is more general but we also wish a Pythonic API.
 Check out [test.py](https://github.com/kulkarpo/GR-mem-acc-patterns/tree/master/example_apps/python/mem_alloc_python_cffi/test.py).
 
 
-## Dockerfile - debugging, runs locally with expected results 
+###### Dockerfile - unexpected errors debugging, 
+runs locally with expected results - img/memeory_usage.jpg
 
-![](https://github.com/kulkarpo/GR-mem-acc-patterns/tree/master/example_apps/python/mem_alloc_python_cffi/img/memory_usage.jpg "memory explosion seen from activity manager")
+![](https://github.com/kulkarpo/GR-mem-acc-patterns/blob/master/example_apps/python/mem_alloc_python_cffi/img/memory_usage.jpg "memory explosion seen from activity manager")
 
 ## How to build and run the example
 
