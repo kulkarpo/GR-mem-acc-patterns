@@ -57,7 +57,9 @@ Initial reading *paper 1* refers to some benchmark applications, could take a lo
 ### Activity tracking
 1. Literature survey - initial reading **In progress**
 2. Application Search - **In progress**
-3. Application build and run steps, docker images for docker applications - ** New **
+3. Application build and run steps, docker images for docker applications - ** In progress **
+	4. python applications (2)- dockerized
+	5. nodejs application (4) - dockerized
 
 
 
