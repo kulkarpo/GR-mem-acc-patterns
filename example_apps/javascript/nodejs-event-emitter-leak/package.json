@@ -1,0 +1,25 @@
+{
+  "name": "node-leak-memory",
+  "version": "1.0.0",
+  "description": "Examples of memory leaking in node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node promises-leak.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxolr/node-leak-memory.git"
+  },
+  "keywords": [],
+  "author": "Alexandru Olaru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alxolr/node-leak-memory/issues"
+  },
+  "homepage": "https://github.com/alxolr/node-leak-memory#readme",
+  "dependencies": {
+    "heap-profile": "^0.3.2",
+    "lru-cache": "^5.1.1",
+    "pump": "^3.0.0"
+  }
+}
