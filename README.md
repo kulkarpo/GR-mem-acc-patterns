@@ -57,9 +57,16 @@ Initial reading *paper 1* refers to some benchmark applications, could take a lo
 ### Activity tracking
 1. Literature survey - initial reading **In progress**
 2. Application Search - **In progress**
-3. Application build and run steps, docker images for docker applications - ** In progress **
+3. Application build and run steps, docker images for docker applications - **In progress**
 	4. python applications (2)- dockerized
 	5. nodejs application (4) - dockerized
+
+#### Notes from Meeting on 28/05
+1. Collect and run the applications from BLeak publication.
+2. Run Java applications with different garbage collectors and collect the memeory and CPU utilization data.
+3. Store the memory utilzation values in a db , which can be used to plot graphs later without repeatedly running them
+4. Add the statement to automatically restart docker when it stops.
+5. For step 3, look at docker node monitoring by Anshul here https://github.com/ansjin/docker-node-monitoring and learn to make use of it to collect the data.
 
 
 
