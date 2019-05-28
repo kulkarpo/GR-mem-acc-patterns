@@ -3,6 +3,10 @@ Guided research module : Identification and Analysis of memory access patterns i
 ## Initial Reading
 1.  "Understanding Object-level Memory Access Patterns Across the Spectrum" - https://dl.acm.org/citation.cfm?id=3126917
 2.  "Performance Analysis of High Performance Computing Applications on the Amazon Web Services Cloud" - https://opac-ub-tum-de.eaccess.ub.tum.de/TouchPoint/singleHit.do?methodToCall=showHit&curPos=1&identifier=5_PRIMO_RESULTSET_259246941
+3. "LeakSpot: detection and diagnosis of memory leaksin JavaScript applications" https://onlinelibrary-wiley-com.eaccess.ub.tum.de/doi/epdf/10.1002/spe.2406
+4. "Cork: Dynamic Memory Leak Detection for Garbage-Collected Languages" http://delivery.acm.org.eaccess.ub.tum.de/10.1145/1200000/1190224/p31-jump.pdf?ip=129.187.254.46&id=1190224&acc=ACTIVE%20SERVICE&key=2BA2C432AB83DA15%2EB4538F6A74FA55F8%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1559054162_b87e424763f067d29d35ff27a8dd6453
+5. "Precise Memory Leak Detection for Java Software Using Container Profiling" http://delivery.acm.org.eaccess.ub.tum.de/10.1145/2500000/2491511/a17-xu.pdf?ip=129.187.254.46&id=2491511&acc=ACTIVE%20SERVICE&key=2BA2C432AB83DA15%2EB4538F6A74FA55F8%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1559054229_228c2737bd1ecb5a8df568a6bd049a6d
+6. "BLeak: Automatically Debugging Memory Leaks in Web Applications" http://delivery.acm.org.eaccess.ub.tum.de/10.1145/3200000/3192376/pldi18main-p39-p.pdf?ip=129.187.254.46&id=3192376&acc=ACTIVE%20SERVICE&key=2BA2C432AB83DA15%2EB4538F6A74FA55F8%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1559054341_2b825f872ca0064daef6987c8beb936c
 
 
 
@@ -67,6 +71,7 @@ Initial reading *paper 1* refers to some benchmark applications, could take a lo
 3. Store the memory utilzation values in a db , which can be used to plot graphs later without repeatedly running them
 4. Add the statement to automatically restart docker when it stops.
 5. For step 3, look at docker node monitoring by Anshul here https://github.com/ansjin/docker-node-monitoring and learn to make use of it to collect the data.
+6. Example application : ASP.NET 
 
 
 
