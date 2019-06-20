@@ -2,7 +2,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 class MemoryLeak {
-    public static int DEFAULT_SIZE = 10000000; // 10 MB
+    //public static int DEFAULT_SIZE = 10000000; // 10 MB
+    public static int DEFAULT_SIZE = 1000000; // 1 MB
 
     public static void main (String[] args) {
 		List<Byte[]> list = new LinkedList<Byte[]> ();

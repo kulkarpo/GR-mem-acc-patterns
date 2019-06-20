@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javaleak:
+    image: poojakulkarni/nodejs-event-emitter-leak
+    restart: always

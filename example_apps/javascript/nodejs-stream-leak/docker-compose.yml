@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javaleak:
+    image: poojakulkarni/nodejs-stream-leak
+    restart: always

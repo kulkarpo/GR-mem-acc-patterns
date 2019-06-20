@@ -1,0 +1,5 @@
+version: '3'
+services:
+  pythonleak:
+    image: poojakulkarni/basicpyleak:latest
+    restart: always
