@@ -6,5 +6,5 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify(requestLogs));
 });
 
-server.listen(3000);
-console.log('Server listening to port 3000. Press Ctrl+C to stop it.');
+server.listen(9999);
+console.log('Server listening to port 9999. Press Ctrl+C to stop it.');

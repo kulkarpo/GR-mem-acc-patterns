@@ -1,5 +1,7 @@
 version: '3'
 services:
-  javaleak:
-    image: poojakulkarni/nodejs-stream-leak
+  nodejsstreamleak:
+          image: poojakulkarni/nodejsstreamleak:latest
     restart: always
+    ports:
+      - "49160:9999"

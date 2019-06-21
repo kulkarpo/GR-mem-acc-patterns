@@ -11,6 +11,6 @@ WORKDIR /myapp
 RUN ls
 RUN npm install
 
-EXPOSE 3030
+EXPOSE 9999
 
 CMD ["node", "stream-leak.js"]

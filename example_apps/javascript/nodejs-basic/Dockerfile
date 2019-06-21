@@ -11,6 +11,6 @@ WORKDIR /myapp
 RUN ls
 RUN npm install
 
-EXPOSE 3030
+EXPOSE 9999
 
-CMD ["node", "memleak-heapsnapshot.js"]
+CMD ["node", "memleak.js"]

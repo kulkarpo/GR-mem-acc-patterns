@@ -1,5 +1,7 @@
 version: '3'
 services:
-  javaleak:
-    image: poojakulkarni/nodejs-basic-memleak
+  nodejsbasicleak:
+    image: poojakulkarni/nodejsbasicleak:latest
     restart: always
+    ports:
+      - "49160:9999"
