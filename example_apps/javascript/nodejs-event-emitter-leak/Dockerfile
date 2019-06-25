@@ -13,4 +13,4 @@ RUN npm install
 
 EXPOSE 9999
 
-CMD ["node", "promises-leak.js"]
+CMD ["node", "event-emitter-leak.js"]

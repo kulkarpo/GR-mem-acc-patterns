@@ -11,6 +11,7 @@ async function handleServer(request, response) {
 }
 
 server.listen(9999);
+console.log('Server listening to port 9999. Press Ctrl+C to stop it.');
 
 function unSolvablePromise() {
   return new Promise(async (resolve, reject) => { })
