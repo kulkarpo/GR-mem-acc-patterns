@@ -24,4 +24,4 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(9999);
-console.log('Server listening to port 3000. Press Ctrl+C to stop it.');
+console.log('Server listening to port 9999. Press Ctrl+C to stop it.');

@@ -1,7 +1,7 @@
 version: '3'
 services:
-  nodejsbasicleak:
-    image: poojakulkarni/nodejsbasicleakfix:latest
+  nodejsbasicleakfix:
+    image: poojakulkarni/nodejsbasicfix:latest
     restart: always
     ports:
       - "49160:9999"

@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: memoryleak
+  name: memoryleak
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: memoryleak
+  template:
+    metadata:
+      labels:
+        k8s-app: memoryleak
+    spec:
+      containers:
+      - name: memoryleak
+        image: patrocinio/memoryleak:latest
+        resources:
+          limits:
+            cpu: 1
+            memory: 1Gi
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
