@@ -1,0 +1,275 @@
+(sum(node_memory_MemTotal_bytes) - sum(node_memory_MemFree_bytes+node_memory_Buffers_bytes+node_memory_Cached_bytes) ) / sum(node_memory_MemTotal_bytes) * 100
+
+
+containerMemUsageQ = "select value from container_memory_usage_bytes"
+containerMemUsage_rs = client.query(containerMemUsageQ)
+containerMemUsage = get_dataframe(containerMemUsage_rs, "usage")
+
+sum(
+	rate(
+		node_cpu_seconds_total[1m]
+		)
+	) by (mode) * 100 
+
+	/ 
+
+	scalar(
+		count(
+			node_cpu_seconds_total{mode=“user"}
+		)
+)	
+
+ SELECT mean(value) FROM collectd.autogen.cpu_value WHERE host =~ /^monitor$/ AND type_instance = 'nice' AND time > 417367h GROUP B...) service=query
+
+per_second_rate_of_change_over_1m_q = "SELECT mean(value) as per_sec " \
+                                    "FROM node_cpu_seconds_total " \
+                                          "WHERE time >= '2019-06-20T11:11:11.758Z' " \
+                                          "AND  time <= '2019-06-20T12:19:26.758Z' " \
+                                          "GROUP BY time(1m), mode"
+
+per_second_rate_of_change_over_1m = client.query(per_second_rate_of_change_over_1m_q)
+
+count_user_mode = client.query("select count(*) from node_cpu_seconds_total where mode='user'")
+print(count_user_mode)
+count = count_user_mode.raw.get('series')[6].get('values')[0][1]
+
+
+
+select derivative(value) from container_cpu_usage_seconds_total where container_name='java-memory-leak_javaleak_1_b8c898ee1e7c' limit 600 group by time(1m)
+
+q = "SELECT sum(value) / 60 as per_sec FROM container_cpu_usage_seconds_total WHERE  image != '' AND  container_label_org_label_schema_group= '' GROUP BY time(1m), name"
+
+
+q = "SELECT derivative(sum(value), 1m) as per_sec " \
+                                          "FROM node_cpu_seconds_total " \
+                                          "WHERE time >= '2019-06-20T11:11:11.758Z' " \
+                                          "AND  time <= '2019-06-20T12:19:26.758Z' " \
+                                          "AND mode= 'user'" \
+                                          "GROUP BY time(1m)"
+
+
+q = "SELECT value from node_cpu_seconds_total limit 1"
+                                     
+
+
+
+qrs = client.query(q)
+qrs
+
+
+qrs_json = qrs.raw
+np_list= qrs_json.get('series')[0].get('values')
+df = pd.DataFrame(np_list, columns=['time', 'per_sec'])
+ax = plt.gca()
+df['plot'] = df.apply(lambda row: row.per_sec / 1640 *100, axis=1)
+df.plot(kind='line', x='time', y='plot', color='orange',ax=ax)
+
+plt.show()
+
+
+count_user_mode = client.query("select count(*) "
+                                   "from node_cpu_seconds_total "
+                                   "where mode='user'")
+
+count = count_user_mode.raw.get('series')[0].get('values')[0][1]
+
+q = "select derivative(sum(value), 1m) from container_cpu_usage_seconds_total where image='patrocinio/memoryleak:latest' AND time >= '2019-06-20T11:11:11.758Z' AND time <= '2019-06-20T12:19:26.758Z' AND container_label_org_label_schema_group=''  group by time(1m)"
+qrs = client.query(q)
+qrs_json = qrs.raw
+np_list= qrs_json.get('series')[0].get('values')
+df = pd.DataFrame(np_list, columns=['time', 'rate_per_sec'])
+ax = plt.gca()
+df['plot'] = df.apply(lambda row: row.rate_per_sec / 1640 *100, axis=1)
+df.plot(kind='line', x='time', y='plot', color='orange',ax=ax)
+
+plt.show()
+
+
+q = "select sum(value) " \
+                         "from container_memory_usage_bytes " \
+                         "where image!='' " \
+                         "AND container_label_org_label_schema_group='' "
+
+
+
+
+
+
+
+
+container cpu:
+====================================
+q = "select derivative(sum(value), 1m) as per_sec " \
+        "from container_cpu_usage_seconds_total " \
+        "where image!='' AND time >= '2019-06-20T11:11:11.758Z' " \
+        "AND time <= '2019-06-20T12:19:26.758Z' " \
+        "AND container_label_org_label_schema_group=''  " \
+        "group by time(1m)"
+
+q = "select derivative(sum(value), 1m) as per_sec " \
+        "from container_cpu_usage_seconds_total " \
+        "where image=" + "\'" + imagedict[dbname] \
+        + "\'"\
+        "AND container_label_org_label_schema_group='' group by time(1m)"
+
+qrs = client.query(q)
+qrs_json = qrs.raw
+np_list= qrs_json.get('series')[0].get('values')
+df = pd.DataFrame(np_list, columns=['time', 'cpu_seconds'])
+ax = plt.gca()
+df['plot'] = df.apply(lambda row: row.cpu_seconds / 1640 *100, axis=1)
+df.plot(kind='line', x='time', y='plot', color='orange',ax=ax)
+
+plt.show()
+
+
+q = "SELECT derivative(sum(value), 1m) as per_sec " \
+        "FROM node_cpu_seconds_total " \
+        "WHERE time>='2019-06-23T13:57:00.622Z' " \
+        "AND time<='2019-06-23T15:00:10.622Z' " \
+        "AND mode='user' " \
+        "GROUP BY time(1m)"
+
+print(q)
+qrs = client.query(q)
+print("qrs result")
+print(qrs)
+
+containerMemUsageQ = "SELECT value as usage " \
+                         "FROM container_memory_usage_bytes " \
+                         "WHERE image=" + "\'" + imagedict[dbname] \
+                         + "\'" + " AND container_label_org_label_schema_group='' "
+
+containerMemUsage_rs = client.query(containerMemUsageQ)
+containerMemUsage = get_dataframe(containerMemUsage_rs, "usage")
+#print(containerMemUsage)
+
+print(containerMemUsage)
+
+
+host cpu :
+==========================================
+q = "SELECT derivative(sum(value), 1m) as per_sec " \
+        "FROM node_cpu_seconds_total " \
+        "WHERE time >= '2019-06-23T13:57:00.622Z' " \
+        "AND time <= '2019-06-23T15:00:10.622Z' " \
+        "AND mode= 'user'" \
+        "GROUP BY time(1m)"
+
+q = "SELECT derivative(sum(value), 1m) as per_sec " \
+        "FROM node_cpu_seconds_total " \
+        "WHERE time>='2019-06-23T13:57:00.622Z' " \
+        "AND time<='2019-06-23T15:00:10.622Z' " \
+        "AND mode='user' " \
+        "GROUP BY time(1m)"
+
+q = "SELECT derivative(sum(value), 1m) as per_sec FROM node_cpu_seconds_total where time >= '2019-06-23T13:57:00.622Z' AND time <= '2019-06-23T15:00:10.622Z' AND mode='user' GROUP BY time(1m)"
+
+qrs = client.query(q)
+qrs_json = qrs.raw
+np_list= qrs_json.get('series')[0].get('values')
+df = pd.DataFrame(np_list, columns=['time', 'rate_per_sec'])
+ax = plt.gca()
+df['plot'] = df.apply(lambda row: row.rate_per_sec / 1640 *100, axis=1)
+df.plot(kind='line', x='time', y='plot', color='orange',ax=ax)
+
+plt.show()
+
+
+
+
+from influxdb import InfluxDBClient
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+host = "138.246.232.174"
+port = 8086
+user = "root"
+password = "root"
+dbname = "nodejs-event-emitter-leak-fix" #todo parameterize this
+
+# make a dictionary of "dbname": "docker image name"
+# limit to a 100-200 entries for plotting
+
+
+imagedict = {
+    'java-memory-leak':
+        {
+            'image': 'patrocinio/memoryleak:latest',
+            'starttime': '2019-06-20T11:11:11.758Z',
+            'endtime': '2019-06-20T12:19:26.758Z'
+        },
+    'new-python-basic-leak':
+        {
+            'image': 'poojakulkarni/basicpyleak:latest',
+            'starttime': '2019-06-25T07:56:06.171Z',
+            'endtime': '2019-06-25T08:56:51.171Z'
+        },
+    'memallocpycffi':
+        {
+            'image':'poojakulkarni/memallocpyleak:latest',
+            'starttime': '2019-06-23T13:55:20.621Z',
+            'endtime': '2019-06-23T15:00:50.621Z'
+        },
+    'new-nodejs-basic-leak':
+        {
+            'image': 'poojakulkarni/nodejsbasicleak:latest',
+            'starttime': '2019-06-25T12:40:41.867Z',
+            'endtime': '2019-06-25T13:40:51.867Z'
+        },
+    'new-nodejs-event-emitter-leak':
+        {
+            'image':'poojakulkarni/nodejseventemitterleak:latest',
+            'starttime':'2019-06-25T15:08:43.672Z',
+            'endtime': '2019-06-25T16:11:38.672Z'
+        },
+    'java-memory-leak-fix':
+        {
+            'image': 'poojakulkarni/javamemleakfix:latest',
+            'starttime': '2019-06-25T21:19:16.569Z',
+            'endtime': '2019-06-25T22:21:31.57Z'
+        },
+    'python-basic-leak-fix':
+        {
+            'image': 'poojakulkarni/nodejsbasicfix:latest',
+            'starttime': '',
+            'endtime': ''
+        },
+    'nodejs-basic-leak-fix':
+        {
+            'image': 'poojakulkarni/nodejsbasicleak:latest',
+            'starttime': '2019-06-25T12:40:41.867Z',
+            'endtime': '2019-06-25T13:40:51.867Z'
+        },
+    'nodejs-event-emitter-leak-fix':
+        {
+            'image':'poojakulkarni/nodejseventemitterfix:latest',
+            'starttime':'2019-06-25T15:08:43.672Z',
+            'endtime': '2019-06-25T16:11:38.672Z'
+        }
+}
+
+
+def connect(dbname):
+    client = InfluxDBClient(host, port, user, password, dbname)
+    return client
+
+
+
+q = "select value from container_cpu_usage_seconds_total"
+client = connect(dbname)
+qrs = client.query(q)
+qrs_raw = qrs.raw
+np_list = qrs_raw.get('series').get('values')
+np_list = qrs_raw.get('series')[0].get('values')
+df = pd.DataFrame(np_list, columns = ['time', 'value'])
+
+
+
+
+
+
+
+
+
