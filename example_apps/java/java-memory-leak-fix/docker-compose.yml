@@ -1,5 +1,5 @@
 version: '3'
 services:
   javaleakfix:
-    image: poojakulkarni/javamemleakfix:latest
+    image: poojakulkarni/javabasicleak1minsleepfix:latest
     restart: always

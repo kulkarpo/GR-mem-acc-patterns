@@ -7,10 +7,8 @@ host = "138.246.232.174"
 port = 8086
 user = "root"
 password = "root"
-dbname = "nodejs-basic-leak-fix" #todo parameterize this
+dbname = "java-memory-leak" #todo parameterize this
 
-# make a dictionary of "dbname": "docker image name"
-# limit to a 100-200 entries for plotting
 
 imagedict = {
     'java-memory-leak':
@@ -78,7 +76,8 @@ def connect(dbname):
 def get_container_memory_usage(client):
     """
     prometheus query is as follows -
-    sum by (name)(container_memory_usage_bytes{image!=“",container_label_org_label_schema_group=""})
+    sum by (name)(container_memory_usage_bytes{image!=“",
+    container_label_org_label_schema_group=""})
     :return:
     """
 
@@ -86,39 +85,59 @@ def get_container_memory_usage(client):
 
     containerMemUsageQ = "SELECT value as usage " \
                          "FROM container_memory_usage_bytes " \
-                         "WHERE image=" + "\'" + imagedict[dbname]['image'] + "\' " + \
+                         "WHERE image=" + "\'" + imagedict[dbname]['image'] \
+                         + "\' " + \
                          "AND container_label_org_label_schema_group='' " \
-                         "AND time >= \'" + imagedict[dbname]['starttime'] +"\' " +\
-                         "AND time <= \'" + imagedict[dbname]['endtime'] + "\'"
+                         "AND time >= \'" + imagedict[dbname]['starttime'] \
+                         +"\' " +\
+                         "AND time <= \'" + imagedict[dbname]['endtime'] \
+                         + "\'"
 
-    #print(containerMemUsageQ)
+    memTotalQ = "select value " \
+                "from node_memory_MemTotal_bytes " \
+                "where time >= \'" + imagedict[dbname]['starttime'] \
+                + "\' " + \
+                "AND time <= \'" + imagedict[dbname]['endtime'] + "\'"
+
     containerMemUsage_rs = client.query(containerMemUsageQ)
     containerMemUsage = get_dataframe(containerMemUsage_rs, "usage")
-    #print(containerMemUsage)
 
+    memTotal_rs = client.query(memTotalQ)
+    memTotal = get_dataframe(memTotal_rs, "total")
 
+    # calculate totalbytes to calculate memory percentage
+    memtotalbytes = memTotal.total.values[0]
+
+    containerMemUsage['usage'] = (containerMemUsage['usage'] /
+                                  memtotalbytes) * 100
     return containerMemUsage
 
 
 def get_host_memory_usage(client):
     """
     prometheus query:
-    node_memory_MemTotal_bytes - (node_memory_MemFree_bytes+node_memory_Buffers_bytes+node_memory_Cached_bytes)
+    node_memory_MemTotal_bytes - (node_memory_MemFree_bytes+
+    node_memory_Buffers_bytes+node_memory_Cached_bytes)
     :return:
     """
     #total memory
     memTotalQ = "select value " \
                 "from node_memory_MemTotal_bytes " \
-                "where time >= \'" + imagedict[dbname]['starttime'] +"\' " + \
+                "where time >= \'" + imagedict[dbname]['starttime'] \
+                +"\' " + \
                 "AND time <= \'" + imagedict[dbname]['endtime'] + "\'"
 
     memTotal_rs = client.query(memTotalQ)
     memTotal = get_dataframe(memTotal_rs, "total")
 
+    #calculate totalbytes to calculate memory percentage
+    memtotalbytes = memTotal.total.values[0]
+
     #free memory
     memFreeQ = "select value " \
                "from node_memory_MemFree_bytes " \
-               "where time >= \'" + imagedict[dbname]['starttime'] +"\' " + \
+               "where time >= \'" + imagedict[dbname]['starttime'] \
+               +"\' " + \
                "AND time <= \'" + imagedict[dbname]['endtime'] + "\'"
 
     memFree_rs = client.query(memFreeQ)
@@ -127,7 +146,8 @@ def get_host_memory_usage(client):
     #buffered
     memBufferQ = "select value " \
                  "from node_memory_Buffers_bytes " \
-                 "where time >= \'" + imagedict[dbname]['starttime'] + "\' " + \
+                 "where time >= \'" + imagedict[dbname]['starttime'] \
+                 + "\' " + \
                  "AND time <= \'" + imagedict[dbname]['endtime'] + "\'"
     memBuffer_rs = client.query(memBufferQ)
     memBuffer = get_dataframe(memBuffer_rs, "buffer")
@@ -135,7 +155,8 @@ def get_host_memory_usage(client):
     #cached
     memCachedQ = "select value " \
                  "from node_memory_Cached_bytes " \
-                 "where time >= \'" + imagedict[dbname]['starttime'] + "\' " + \
+                 "where time >= \'" + imagedict[dbname]['starttime'] \
+                 + "\' " + \
                  "AND time <= \'" + imagedict[dbname]['endtime'] + "\'"
 
     memCached_rs = client.query(memCachedQ)
@@ -147,19 +168,24 @@ def get_host_memory_usage(client):
     tfcb_merge = pd.merge(tfc_merge, memBuffer, on="time")
 
     #add a column based on operation (used = total - {free+cache+buffer})
-    tfcb_merge.apply(lambda row: row.total - (row.free + row.buffer + row.cache), axis=1)
+    tfcb_merge.apply(lambda row: row.total - (row.free +
+                                              row.buffer
+                                              + row.cache), axis=1)
     tfcb_merge['used'] = tfcb_merge.apply(
         lambda row: row.total - (row.free + row.buffer + row.cache),
         axis=1)
 
+    # calculate percentage of memories plot
+    tfcb_merge['used'] = (tfcb_merge['used'] / memtotalbytes) * 100
     # return final dataframe to plot
-
     return tfcb_merge
 
 
 def get_container_cpu_usage(client):
     """
-    sum by (name) (rate(container_cpu_usage_seconds_total{image!="",container_label_org_label_schema_group=""}[1m])) / scalar(count(node_cpu_seconds_total{mode="user"})) * 100
+    sum by (name) (rate(container_cpu_usage_seconds_total
+    {image!="",container_label_org_label_schema_group=""}[1m])) /
+    scalar(count(node_cpu_seconds_total{mode="user"})) * 100
 
     :return:
     """
@@ -191,7 +217,8 @@ def get_container_cpu_usage(client):
 
 def get_host_cpu_usage(client):
     """
-    sum(rate(container_cpu_user_seconds_total{image!=""}[1m])) / count(node_cpu_seconds_total{mode="user"}) * 100
+    sum(rate(container_cpu_user_seconds_total{image!=""}[1m])) /
+    count(node_cpu_seconds_total{mode="user"}) * 100
 
     :return:
     """
@@ -246,7 +273,7 @@ def plot_df(df, name, col_to_plot, ymax, ylabelle):
     plt.ylabel(ylabelle)
     ax.tick_params(axis='x', rotation=16)
     plt.grid(True)
-    plt.savefig(dbname+"_"+name+".png")
+    plt.savefig("./plots/"+dbname+"_"+name+".png")
     #plt.show()
 
     plt.clf()

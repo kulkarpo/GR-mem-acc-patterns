@@ -1,5 +1,5 @@
 version: '3'
 services:
   javaleak:
-    image: patrocinio/memoryleak:latest
+    image: poojakulkarni/javabasicleak1minsleep:latest
     restart: always
