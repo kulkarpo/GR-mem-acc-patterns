@@ -1,0 +1,7 @@
+version: '3'
+services:
+  nodejsstream:
+    image: poojakulkarni/nodejsstream:latest 
+    restart: always
+    ports:
+      - "49160:9999"

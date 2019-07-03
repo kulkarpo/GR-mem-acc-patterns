@@ -1,0 +1,6 @@
+version: '3'
+services:
+  nodejsbasicleakfix:
+    image: poojakulkarni/nodegctestleak:latest
+    #image: trynodejsgctest:latest 
+    restart: always

@@ -2,4 +2,6 @@ version: '3'
 services:
   javaleakfix:
     image: poojakulkarni/javabasicleak1minsleepfix:latest
+    #image: poojakulkarni/javabasicleak3minsleepfix:latest
+    #image: poojakulkarni/javabasicleak5minsleepfix:latest
     restart: always

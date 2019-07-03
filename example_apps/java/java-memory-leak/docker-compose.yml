@@ -1,5 +1,7 @@
 version: '3'
 services:
   javaleak:
-    image: poojakulkarni/javabasicleak1minsleep:latest
+    #image: poojakulkarni/javabasicleak1minsleep:latest
+    image: poojakulkarni/javabasicleak3minsleep:latest
+    # image: poojakulkarni/javabasicleak5minsleep:latest
     restart: always

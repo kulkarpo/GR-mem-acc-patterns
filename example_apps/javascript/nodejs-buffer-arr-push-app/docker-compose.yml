@@ -1,0 +1,5 @@
+version: '3'
+services:
+  nodejsarraypushapply:
+    image: poojakulkarni/nodejsarraypushapply:latest 
+    restart: always

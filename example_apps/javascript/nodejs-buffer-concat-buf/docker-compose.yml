@@ -1,0 +1,7 @@
+version: '3'
+services:
+  nodejsbufferconcatwithbuffers:
+    image: poojakulkarni/nodejsbufferconcatwithbuffers:latest 
+    restart: always
+    ports:
+      - "49160:9999"

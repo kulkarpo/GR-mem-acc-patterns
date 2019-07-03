@@ -1,0 +1,5 @@
+version: '3'
+services:
+  nodejsbufferbase64toobj:
+    image: poojakulkarni/nodejsbufferbase64toobj:latest 
+    restart: always

@@ -1,0 +1,5 @@
+version: '3'
+services:
+  nodejsbufferoffsetinsert:
+    image: poojakulkarni/nodejsbufferoffsetinsert:latest 
+    restart: always

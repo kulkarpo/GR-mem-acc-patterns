@@ -1,5 +1,7 @@
 version: '3'
 services:
   pythonleak:
-    image: pookakulkarni/pythonbasicleak1minsleep:latest
+    image: poojakulkarni/pythonbasicleak1minsleep:latest 
+    # image: poojakulkarni/pythonbasicleak3minsleep:latest 
+    # image: poojakulkarni/pythonbasicleak5minsleep:latest 
     restart: always

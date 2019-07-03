@@ -1,0 +1,5 @@
+version: '3'
+services:
+  cloudsuiteinmemoryanalytics:
+    image: poojakulkarni/cloudsuiteinmemoryanalyticsv3.0:latest
+    restart: always
