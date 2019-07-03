@@ -25,7 +25,8 @@ class MemoryLeak {
 	    	System.out.println ("" + counter + ". Allocating memory...");
 	    	list.add (new Byte[size]);
 	    	try {
-		    	Thread.sleep (1000);
+			//sleep. 1, 3 and 5 minutes to understand the usage pattern
+		    	Thread.sleep (300000);
 		    } catch (InterruptedException e) {
 
 		    }

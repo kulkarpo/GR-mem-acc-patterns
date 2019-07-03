@@ -25,7 +25,7 @@ class MemoryLeakFix {
 	    	    System.out.println ("" + counter + ". Allocating memory...");
 	    	    list.add (new Byte[size]);
 	    	    try {
-		    	Thread.sleep (1000);
+		    	Thread.sleep (300000);
 		    } 
 		    catch (InterruptedException e) {
                     
