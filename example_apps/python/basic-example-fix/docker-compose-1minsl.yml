@@ -1,0 +1,7 @@
+version: '3'
+services:
+  pythonleakfix:
+    image: poojakulkarni/pythonbasicleak1minsleepfix:latest
+    # image: poojakulkarni/pythonbasicleak3minsleepfix:latest
+    # image: poojakulkarni/pythonbasicleak5minsleepfix:latest
+    restart: always

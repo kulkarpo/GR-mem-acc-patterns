@@ -10,4 +10,4 @@ RUN apk add --update \
 
 COPY leak.py /
 
-CMD python /leak.py
+CMD python -u /leak.py

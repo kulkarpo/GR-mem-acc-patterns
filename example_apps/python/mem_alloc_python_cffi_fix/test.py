@@ -10,9 +10,9 @@ def safe_function(length):
 
 
 if __name__ == '__main__':
-    length = 100000
+    length = 10000
     while True:
         time.sleep(0.1)
-        print("Leaking ....")
-        leaky_function(length)
-        #safe_function(length)
+        print("Leaking ....but will be garbage collected! _\../")
+        #leaky_function(length)
+        safe_function(length)

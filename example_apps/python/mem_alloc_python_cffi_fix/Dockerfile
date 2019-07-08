@@ -22,4 +22,4 @@ RUN make
 WORKDIR /myapp
 
 RUN pip install -r requirements.txt
-CMD EXAMPLE_BUILD_DIR=build python -u test.py
+CMD EXAMPLE_BUILD_DIR=build python -u /myapp/test.py
