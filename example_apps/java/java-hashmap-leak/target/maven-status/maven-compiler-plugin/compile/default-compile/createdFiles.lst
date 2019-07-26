@@ -1,0 +1,5 @@
+com/github/chrishantha/sample/memoryleak/GoodKey.class
+com/github/chrishantha/sample/memoryleak/Key.class
+com/github/chrishantha/sample/memoryleak/MemoryLeakApplication.class
+com/github/chrishantha/sample/memoryleak/BadKey.class
+com/github/chrishantha/sample/memoryleak/MemoryLeakApplication$KeyType.class

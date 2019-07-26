@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javaleakunsafeops:
+    image: poojakulkarni/javaleakunsafe:latest
+    restart: always
