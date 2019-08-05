@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javazipinputmarkandsweepleak:
+    image: poojakulkarni/javazipinputstreamerconcmarkadnsweep:latest
+    restart: always

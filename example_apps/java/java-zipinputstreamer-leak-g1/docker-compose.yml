@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javazipinputg1leak:
+    image: poojakulkarni/javazipinputstreamerg1leak:latest
+    restart: always

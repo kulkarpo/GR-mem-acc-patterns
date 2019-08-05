@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javainflaterg1leak:
+    image: poojakulkarni/javainflaterg1leak:latest
+    restart: always

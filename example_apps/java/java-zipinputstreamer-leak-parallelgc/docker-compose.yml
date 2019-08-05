@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javazipinputparallelgcleak:
+    image: poojakulkarni/javazipinputstreamerparallelgc:latest
+    restart: always

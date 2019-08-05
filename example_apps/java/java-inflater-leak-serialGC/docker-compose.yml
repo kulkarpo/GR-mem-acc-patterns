@@ -1,0 +1,5 @@
+version: '3'
+services:
+  javainflaterserialgcleak:
+    image: poojakulkarni/javainflaterserialgcleak:latest
+    restart: always
