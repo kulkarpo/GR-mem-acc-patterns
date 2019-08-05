@@ -1,0 +1,6 @@
+version: '3'
+services:
+  jsglobalvariableleak:
+    image: poojakulkarni/jsglobalvariableleak:latest
+    #image: trynodejsgctest:latest 
+    restart: always

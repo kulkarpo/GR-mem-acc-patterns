@@ -1,0 +1,6 @@
+version: '3'
+services:
+  jsfilecacheleak:
+    image: poojakulkarni/jsfilecacheleak:latest
+    #image: trynodejsgctest:latest 
+    restart: always
